@@ -1,23 +1,23 @@
-const { ccclass, property } = cc._decorator;
+const { ccclass } = cc._decorator;
 
 @ccclass
 export default class DivWidget extends cc.Component {
 
-    div: HTMLDivElement = null;
+    public div: HTMLDivElement = null;
 
-    _mat4_temp = cc.mat4();
-    _visible = false;
-    _forceUpdate = false;
+    private _mat4_temp = cc.mat4();
+    private _visible = false;
+    private _forceUpdate = false;
 
     // update matrix cache
-    _m00 = 0;
-    _m01 = 0;
-    _m04 = 0;
-    _m05 = 0;
-    _m12 = 0;
-    _m13 = 0;
-    _w = 0;
-    _h = 0;
+    private _m00 = 0;
+    private _m01 = 0;
+    private _m04 = 0;
+    private _m05 = 0;
+    private _m12 = 0;
+    private _m13 = 0;
+    private _w = 0;
+    private _h = 0;
 
     // LIFE-CYCLE CALLBACKS:
 

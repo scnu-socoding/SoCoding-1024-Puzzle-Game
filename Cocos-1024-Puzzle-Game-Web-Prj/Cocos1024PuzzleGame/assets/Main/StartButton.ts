@@ -23,7 +23,7 @@ export default class StartButton extends cc.Component {
     }
 
     onBeginContact() {
-        this.rigidbody.gravityScale = 1;
+        this.rigidbody.gravityScale = 1.2;
         this.contacting = true;
     }
 

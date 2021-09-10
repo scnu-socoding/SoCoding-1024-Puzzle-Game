@@ -1,7 +1,26 @@
 const { ccclass, property } = cc._decorator;
 
-const payload = [{ puzzleName: "买瓜", prefabIndex: 0 },
-{ puzzleName: "()+[]!", prefabIndex: 1 }];
+const payload =
+    [{ puzzleName: "签到", prefabIndex: 0 },
+    { puzzleName: "买瓜", prefabIndex: 1 },
+    { puzzleName: "()+[]!", prefabIndex: 2 },
+    { puzzleName: "来自太空的声音", prefabIndex: 3 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 4 },
+    { puzzleName: "错误的梦", prefabIndex: 5 },
+    { puzzleName: "Anime", prefabIndex: 6 },
+    { puzzleName: "QR", prefabIndex: 7 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 8 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },];
 
 @ccclass
 export default class Main extends cc.Component {
@@ -27,6 +46,11 @@ export default class Main extends cc.Component {
     @property(cc.Label)
     cardTitle: cc.Label = null;
 
+    @property(cc.ScrollView)
+    scrollView: cc.ScrollView = null;
+
+    levelCardNode: cc.Node = null;
+
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
@@ -46,7 +70,9 @@ export default class Main extends cc.Component {
             this.scrollContentNode.addChild(node);
             node.on(cc.Node.EventType.TOUCH_END, () => {
                 let prefab = this.puzzlePrefabs[puzzle.prefabIndex];
+                if (!prefab) return;
                 let node = cc.instantiate(prefab);
+                this.levelCardNode = node;
                 this.card.addChild(node);
                 this.card.active = true;
                 this.cardTitle.string = "Cocos 1024 Puzzle - " + puzzle.puzzleName;
@@ -61,13 +87,19 @@ export default class Main extends cc.Component {
                 cc.tween(dot).to(0.2, { scale: 0 }, { easing: 'smooth' }).call(() => dot.destroy()).start();
             }, this);
         }
+
+        this.scrollView.scrollToRight(2);
     }
 
     closeCard() {
         cc.tween(this.card).to(0.2, { opacity: 0, scale: 0 }, { easing: 'smooth' }).call(() => {
             this.card.active = false;
-            this.card.children[this.card.childrenCount - 1].destroy();
+            this.levelCardNode && this.levelCardNode.destroy();
         }).start();
+    }
+
+    toSoCoding() {
+        window.open("https://socoding.cn/");
     }
 
 

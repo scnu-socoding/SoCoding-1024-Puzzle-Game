@@ -1,4 +1,4 @@
-import DivWidget from "./DivWidget";
+import DivWidget from "../DivWidget";
 
 const { ccclass, property } = cc._decorator;
 
@@ -14,13 +14,15 @@ export default class JSFuck extends cc.Component {
 
     start() {
         this.divWidget.div.innerHTML = `
-        <textarea style="
-        background: #212121;
+        <textarea spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" 
+        style="
+        background: #0000;
         resize: none;
         width: 100%;
         height: 100%;
         color: white;
         font-size: 110%;
+        text-align: center;
     ">${code}</textarea>`;
     }
 
