@@ -46,7 +46,10 @@ export default class StartButton extends cc.Component {
     buttonClick() {
         this.collider.destroy();
         this.cardNode.active = true;
-        cc.tween(this.titleNode).to(0.2, { x: 0 }, { easing: 'smooth' }).start();
+        cc.tween(this.node).to(2, { opacity: 0 }, { easing: 'smooth' }).call(() => this.node.destroy()).start();
+        let tween1 = cc.tween(this.titleNode).to(0.3, { x: 0 }, { easing: 'smooth' });
+        let tween2 = cc.tween(this.titleNode).to(10, { x: 0 }, { easing: 'smooth' });
+        cc.tween(this.titleNode).sequence(tween1, tween2).start();
     }
 
     buttonMove() {

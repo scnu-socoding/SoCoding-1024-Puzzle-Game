@@ -16,10 +16,8 @@ export default class SSTV extends cc.Component {
     // onLoad () {}
 
     start() {
-        this.divWidget.div.innerHTML = `<audio src=${this.sstvAudio.nativeUrl} controls="controls"
-        style="top: 50%;
-        left: 50%;
-        transform: translate(50%,200%);"></audio>`;
+        this.divWidget.div.style.textAlign = "center";
+        this.divWidget.div.innerHTML = `<audio src=${this.sstvAudio.nativeUrl} controls="controls"></audio>`;
     }
 
     // update (dt) {}

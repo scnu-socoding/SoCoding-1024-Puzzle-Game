@@ -23,7 +23,7 @@ export default class Meng extends cc.Component {
         this.divWidget.div.innerHTML = `
         <textarea spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"
         style="
-        background: #0000;
+        background: #00000000;
         resize: none;
         width: 100%;
         height: 100%;
