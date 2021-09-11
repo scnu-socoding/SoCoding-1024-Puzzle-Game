@@ -9,13 +9,18 @@
     ]
   ],
   "excluded-modules": [
-    "3D Physics/Builtin"
+    "DragonBones",
+    "Native Socket",
+    "Spine Skeleton",
+    "3D Physics/cannon.js",
+    "3D Physics/Builtin",
+    "3D Particle"
   ],
   "preview-port": 7456,
   "design-resolution-width": 1920,
   "design-resolution-height": 1080,
   "fit-width": true,
-  "fit-height": false,
+  "fit-height": true,
   "use-project-simulator-setting": false,
   "simulator-orientation": false,
   "use-customize-simulator": true,

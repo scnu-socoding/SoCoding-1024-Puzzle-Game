@@ -2,4 +2,4 @@
 
 
 
-flag{a37dea132d3b4a0a}
+flag{COCOS-a8ijn}

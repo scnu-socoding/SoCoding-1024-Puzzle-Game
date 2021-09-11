@@ -359,7 +359,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        2000,
+        1080,
         0,
         0,
         0,
@@ -1096,7 +1096,7 @@
     "tag": 0,
     "_density": 10,
     "_sensor": false,
-    "_friction": 0.2,
+    "_friction": 0.7,
     "_restitution": 1,
     "body": null,
     "_offset": {
@@ -1217,7 +1217,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 697.03,
+      "width": 850.5,
       "height": 75.6
     },
     "_anchorPoint": {
@@ -1269,13 +1269,15 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "Cocos 1024 Puzzle Game",
-    "_N$string": "Cocos 1024 Puzzle Game",
+    "_string": "2021 Cocos 1024 Puzzle Game",
+    "_N$string": "2021 Cocos 1024 Puzzle Game",
     "_fontSize": 60,
     "_lineHeight": 60,
     "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "e3f331d7-f3ea-4bf3-9095-21232ba44911"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,
@@ -1431,7 +1433,7 @@
     "_normalMaterial": null,
     "_grayMaterial": null,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 2,
     "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
@@ -1685,7 +1687,7 @@
     "_normalMaterial": null,
     "_grayMaterial": null,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 2,
     "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
@@ -1891,7 +1893,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.5,
+    "_restitution": 0.6,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -2638,8 +2640,10 @@
     "_fontSize": 60,
     "_lineHeight": 60,
     "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "e3f331d7-f3ea-4bf3-9095-21232ba44911"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,
@@ -2789,7 +2793,7 @@
     "_normalMaterial": null,
     "_grayMaterial": null,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 1.5,
     "clickEvents": [
       {
         "__id__": 65
@@ -3079,22 +3083,22 @@
         "__id__": 73
       },
       {
-        "__id__": 74
+        "__id__": 75
       }
     ],
     "_prefab": null,
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 215,
+      "g": 215,
+      "b": 215,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 360,
-      "height": 75.6
+      "width": 1654,
+      "height": 341
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3106,14 +3110,14 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        0,
+        -1,
         0,
         0,
         0,
         0,
         1,
-        1,
-        1,
+        0.12,
+        0.12,
         1
       ]
     },
@@ -3131,39 +3135,6 @@
     "_id": "c90HYij25F0ZT4NEdEwi2J"
   },
   {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 72
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_string": "华南师范大学软件协会",
-    "_N$string": "华南师范大学软件协会",
-    "_fontSize": 36,
-    "_lineHeight": 60,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_batchAsBitmap": false,
-    "_styleFlags": 0,
-    "_underlineHeight": 0,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "",
-    "_N$overflow": 0,
-    "_N$cacheMode": 0,
-    "_id": "93aVBWiaNOMqspzT3rmp38"
-  },
-  {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
@@ -3177,45 +3148,45 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 75
+        "__id__": 74
       }
     ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 0,
-    "transition": 0,
+    "_N$transition": 1,
+    "transition": 1,
     "_N$normalColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 215,
+      "g": 215,
+      "b": 215,
       "a": 255
     },
     "_N$pressedColor": {
       "__type__": "cc.Color",
-      "r": 211,
-      "g": 211,
-      "b": 211,
+      "r": 0,
+      "g": 167,
+      "b": 255,
       "a": 255
     },
     "pressedColor": {
       "__type__": "cc.Color",
-      "r": 211,
-      "g": 211,
-      "b": 211,
+      "r": 0,
+      "g": 167,
+      "b": 255,
       "a": 255
     },
     "_N$hoverColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
+      "r": 145,
+      "g": 217,
       "b": 255,
       "a": 255
     },
     "hoverColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
+      "r": 145,
+      "g": 217,
       "b": 255,
       "a": 255
     },
@@ -3232,7 +3203,9 @@
     "_N$hoverSprite": null,
     "hoverSprite": null,
     "_N$disabledSprite": null,
-    "_N$target": null,
+    "_N$target": {
+      "__id__": 72
+    },
     "_id": "8a5oi2L3VGG5rcISrGdpRe"
   },
   {
@@ -3244,6 +3217,38 @@
     "_componentId": "f5dc90foL5GEJv2Vkxkx281",
     "handler": "toSoCoding",
     "customEventData": ""
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 72
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 768,
+    "_dstBlendFactor": 1,
+    "_spriteFrame": {
+      "__uuid__": "2551eb45-f21a-4c92-a755-fd30bcff79b4"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_atlas": null,
+    "_id": "8fPKCaQspDCY7PHtVrTrWt"
   },
   {
     "__type__": "cc.Sprite",
@@ -3431,6 +3436,15 @@
       },
       {
         "__uuid__": "089a343b-6e69-43c0-b52b-9ea71101737b"
+      },
+      {
+        "__uuid__": "03f44dda-8010-406b-b3b4-bf2e19dbf3e4"
+      },
+      {
+        "__uuid__": "b7c47614-a266-465e-bad8-57bf89521d35"
+      },
+      {
+        "__uuid__": "feedff53-e56f-48e7-9d3e-fa7fe0a86568"
       }
     ],
     "card": {

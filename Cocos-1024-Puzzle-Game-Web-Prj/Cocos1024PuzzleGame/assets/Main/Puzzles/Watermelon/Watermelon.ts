@@ -42,15 +42,5 @@ export default class Watermelon extends cc.Component {
         this.textArea.value = 'flag{' + (114514114514 * (1 + 10 * this.slider.progress)).toString(36) + '}';
     }
 
-    onEdit() {
-        let len = this.textArea.value.length;
-        let number = this.textArea.value.substring(5, len - 1);
-        let num = parseInt(number, 36);
-        if (!Number.isNaN(num)) {
-            this.slider.progress = (num / 114514114514 - 1) / 10;
-            this.onSlide();
-        }
-    }
-
     // update (dt) {}
 }

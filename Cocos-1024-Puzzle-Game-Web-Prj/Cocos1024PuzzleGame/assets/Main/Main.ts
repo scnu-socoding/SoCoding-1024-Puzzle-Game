@@ -1,26 +1,34 @@
 const { ccclass, property } = cc._decorator;
 
 const payload =
-    [{ puzzleName: "签到", prefabIndex: 0 },
-    { puzzleName: "买瓜", prefabIndex: 1 },
-    { puzzleName: "()+[]!", prefabIndex: 2 },
-    { puzzleName: "来自太空的声音", prefabIndex: 3 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 4 },
-    { puzzleName: "错误的梦", prefabIndex: 5 },
-    { puzzleName: "Anime", prefabIndex: 6 },
-    { puzzleName: "QR", prefabIndex: 7 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 8 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }, { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },];
+    [{ puzzleName: "签到", prefabIndex: 0, score: 200 },
+    { puzzleName: "买瓜", prefabIndex: 1, score: 200 },
+    { puzzleName: "()+[]!", prefabIndex: 2, score: 200 },
+    { puzzleName: "来自太空的声音", prefabIndex: 3, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 4, score: 200 },
+    { puzzleName: "记错的梦", prefabIndex: 5, score: 200 },
+    { puzzleName: "Anime", prefabIndex: 6, score: 200 },
+    { puzzleName: "QR", prefabIndex: 7, score: 200 },
+    { puzzleName: "Meow", prefabIndex: 8, score: 200 },
+    { puzzleName: "手电筒", prefabIndex: 9, score: 200 },
+    { puzzleName: "什么也没有", prefabIndex: 10, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 }];
 
 @ccclass
 export default class Main extends cc.Component {
@@ -54,6 +62,9 @@ export default class Main extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
+        cc.view.enableRetina(true);
+        cc.view.resizeWithBrowserSize(true);
+
         cc.director.getPhysicsManager().enabled = true;
         cc.director.getPhysicsManager().gravity = cc.v2(0, -1200);
 
@@ -64,10 +75,16 @@ export default class Main extends cc.Component {
         this.card.scale = 0;
         this.card.active = false;
 
+        this.card.children[0].zIndex = 999;
+
         for (let puzzle of payload) {
             let node = cc.instantiate(this.cardPrefab);
-            node.children[0].getComponent(cc.Label).string = puzzle.puzzleName;
+            node.getChildByName("Name").getComponent(cc.Label).string = puzzle.puzzleName;
+            node.getChildByName("ID").getComponent(cc.Label).string =
+                (1 + puzzle.prefabIndex).toString().padStart(2, '0');
+            node.getChildByName("Score").getComponent(cc.Label).string = 'score: ' + puzzle.score.toString();
             this.scrollContentNode.addChild(node);
+
             node.on(cc.Node.EventType.TOUCH_END, () => {
                 let prefab = this.puzzlePrefabs[puzzle.prefabIndex];
                 if (!prefab) return;
@@ -76,7 +93,8 @@ export default class Main extends cc.Component {
                 this.card.addChild(node);
                 this.card.active = true;
                 this.cardTitle.string = "Cocos 1024 Puzzle - " + puzzle.puzzleName;
-                cc.tween(this.card).to(0.2, { opacity: 255, scale: 1 }, { easing: 'smooth' }).start();
+
+                cc.tween(this.card).to(0.2, { opacity: 255, scale: 1, x: 0, y: 0 }, { easing: 'smooth' }).start();
             }, this);
         }
     }
