@@ -3071,7 +3071,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Text",
+    "_name": "LOGO",
     "_objFlags": 0,
     "_parent": {
       "__id__": 71
@@ -3097,8 +3097,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1654,
-      "height": 341
+      "width": 414,
+      "height": 85
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3116,8 +3116,8 @@
         0,
         0,
         1,
-        0.12,
-        0.12,
+        0.5,
+        0.5,
         1
       ]
     },
@@ -3231,8 +3231,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
-    "_srcBlendFactor": 768,
-    "_dstBlendFactor": 1,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_spriteFrame": {
       "__uuid__": "2551eb45-f21a-4c92-a755-fd30bcff79b4"
     },
@@ -3248,7 +3248,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": null,
-    "_id": "8fPKCaQspDCY7PHtVrTrWt"
+    "_id": "45QgMpIUpCfKJkX9Ay4a5M"
   },
   {
     "__type__": "cc.Sprite",

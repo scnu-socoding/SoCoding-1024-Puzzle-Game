@@ -39,7 +39,7 @@ export default class Watermelon extends cc.Component {
 小强下了车，瞅了一眼摊主，问道：“哥们儿，这瓜多少钱一斤呐？”
 摊主答道：“ ${this.slider.progress * 10} 块钱一斤。”`;
 
-        this.textArea.value = 'flag{' + (114514114514 * (1 + 10 * this.slider.progress)).toString(36) + '}';
+        this.textArea.value = (727432).toString(36) + '{' + (114514114514 * (1 + 10 * this.slider.progress)).toString(36) + '}';
     }
 
     // update (dt) {}
