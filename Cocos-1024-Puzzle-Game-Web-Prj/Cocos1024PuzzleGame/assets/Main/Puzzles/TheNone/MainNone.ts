@@ -17,8 +17,11 @@ export default class MainNone extends cc.Component {
     // onLoad () {}
 
     start() {
-        this.divWidget.div.innerHTML = `<img style="width: 100%;
-        height: 100%;" src=${this.texture.nativeUrl}></img>`;
+        this.divWidget.div.innerHTML = `<img style="
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        " src=${this.texture.nativeUrl}></img>`;
     }
 
     // update (dt) {}

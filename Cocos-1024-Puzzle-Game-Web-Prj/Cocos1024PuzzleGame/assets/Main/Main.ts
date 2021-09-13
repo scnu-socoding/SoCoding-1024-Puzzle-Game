@@ -14,8 +14,8 @@ const payload =
     { puzzleName: "什么也没有", prefabIndex: 10, score: 200 },
     { puzzleName: "Character", prefabIndex: 11, score: 200 },
     { puzzleName: "指针", prefabIndex: 12, score: 200 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
+    { puzzleName: "闪烁", prefabIndex: 13, score: 200 },
+    { puzzleName: "目录", prefabIndex: 14, score: 200 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9, score: 200 },
@@ -75,7 +75,7 @@ export default class Main extends cc.Component {
         this.card.scale = 0;
         this.card.active = false;
 
-        this.card.children[0].zIndex = 999;
+        this.card.getChildByName('TitleBackground').zIndex = 999;
 
         for (let puzzle of payload) {
             let node = cc.instantiate(this.cardPrefab);
@@ -97,6 +97,9 @@ export default class Main extends cc.Component {
                 cc.tween(this.card).to(0.2, { opacity: 255, scale: 1, x: 0, y: 0 }, { easing: 'smooth' }).start();
             }, this);
         }
+
+        this.node.opacity = 0;
+        cc.tween(this.node).to(0.5, { opacity: 255 }, { easing: 'circOut' }).start();
     }
 
     start() {
