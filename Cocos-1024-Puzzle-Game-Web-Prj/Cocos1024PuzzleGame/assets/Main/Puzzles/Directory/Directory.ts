@@ -1,3 +1,5 @@
+import DivWidget from "../DivWidget";
+
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -21,8 +23,8 @@ export default class Directory extends cc.Component {
     @property(cc.Node)
     panelNode: cc.Node = null;
 
-    @property(cc.Label)
-    panelLabel: cc.Label = null;
+    @property(DivWidget)
+    panelDiv: DivWidget = null;
 
     @property(cc.Node)
     splashNode: cc.Node = null;
@@ -143,12 +145,30 @@ export default class Directory extends cc.Component {
         cc.macro[(614192).toString(34).toUpperCase()] = "";
     }
 
+    set divLabelString(str: string) {
+        this.panelDiv.div.innerHTML = `
+        <textarea spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" readonly
+        style="
+        background: #00000000;
+        resize: none;
+        width: 100%;
+        height: 100%;
+        color: white;
+        padding: 10px;
+        font-size: 40px;
+        border: none;
+        resize: none;
+        outline:none;
+        font-family: 'KaTeX_Typewriter-Regular_LABEL';
+    ">${str}</textarea>`;
+    }
+
     async openPanel(str: string) {
         if (this.panelNode.active === true) {
             await this.closePanel();
         }
         this.panelNode.active = true;
-        this.panelLabel.string = str.length > 100 ? str.substring(0, 100) + '...' : str;
+        this.divLabelString = str;
         this.panelNode.scale = 0;
         this.panelNode.opacity = 0;
         this.panelNode.x = 0;

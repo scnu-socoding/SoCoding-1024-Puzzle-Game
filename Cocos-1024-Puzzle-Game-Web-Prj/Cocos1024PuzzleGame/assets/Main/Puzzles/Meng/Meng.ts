@@ -2,6 +2,8 @@ import DivWidget from "../DivWidget";
 
 const { ccclass, property } = cc._decorator;
 
+const code = `==Qo/SumdWekIauCl2p5wiY5ayL5a6a5AiL55+L6HWa5K4Immvrpn/KmmrprlDIuk7IklvYukzJplH5upLoplParm/KmmbYvkrQh+Weiteegmiel9Suu4Suh6SOsuiOm/W+j7eus3WekIaOsIWOtbeuCF6b5J265oyZ50u55AiL5Rio5KIarmzZgl/4unL7tlT7lpb7lmvZvk/7ukrwinWOg8WOhaeupia+rYaejJaujQW+i5S+oCmOuui+n5SuCR+L6MCI6c+L6xS55wOa5l2q5aSI6qiL5AiL5A255sCZ5KoIukbbopHbslTomnrrukDIukD6lmrbqnjKnlDZnlvZvk/7ukHJimrgkGmuoNaekIauhwWuu6SOkfaOgdeeh+WeiteuCF6b5J265Lea5Ayb5Rio5vip5OqL5K8ZnmP5unrJvkvLgmbqomrLukD6mlrgpia+rYaej4Sem/iuCSCY5IW65qeI6Xqp5Rio5KM5unj4unnInmHqsm/ZukrwinWOg8WeicaeoyauCNGY6AiL5I+Y5NGY6AiL5KYqomrKukDIukrZgljKnlT7mnDIukHJimrwt1iutXael9Suj7Sepfeej4SuCKE6vkrZnlHJimrQhZmeqkWuh6Sui4Sup4W+sDaupiaOhaeekIauiKaumuWOg4SeulWuCK+Y5v+Y5NiL5HGp5vip5NaY5NiL56m65pSa5KcJklX7vl3JgmTomnHJimDLilf5jl/Jhm37gorQulWOhaeOl/eunjmer4SuupeeqkWOqcWuCKiL5rqL6Eq555Wa5oyZ5Ymo5E+a5vmp5nao5MKZ5byp5Mib5GCb5Jyp5q+Y5KEJimTomnDohoX4vnnInmHqsm7oukn7rlrQulWelFaeo+e+m6SeicauCnCZ5FWp5f6Y5Eq55MeY6jKY6oyZ5xSa5Iar5Pu75+up5KMbplHJslrKukPqgprLukD6ml/Kmm37go/6jlrgj+eevlWuupeeqkW+hJeem/i+l+WeiniekIauC3WL62ep5V2L5OuL5l+55NiL5`;
+
 @ccclass
 export default class Meng extends cc.Component {
 
@@ -30,38 +32,7 @@ export default class Meng extends cc.Component {
         color: white;
         font-size: 40px;
         text-align: center;
-    ">不知从何时起
-我觉得这片天空好美
-可能是因为那个少女
-曾经消失在那里的原故吧
-有些羡慕她
-对于没有翅膀的我
-只有将希望和憧景寄托在她的身上
-在天空中飞翔的她
-能感受到我的思念吗
-天空不再是摇不可及
-她一定把我的梦想带上了天际
-我坚信
-
-不知从何时起
-我一直在做一个梦
-一遍又一遍
-没有开始
-也没有终结
-我暗自祈倒
-这不是梦
-因为梦总会结束
-于是我开始等待
-等待着某人将我换醒
-我仿佛坐在空无一人的山顶上
-听着一个脚步声由远而近
-也许那之后才是梦的开始
-仿佛时间已经停止
-我一直在等待
-直到我已经忘记了为何要等待
-但是正如黑夜之后一定是离明
-奇迹一定会到来
-我坚信</textarea>`;
+    ">${code}</textarea>`;
 
     }
 

@@ -1,3 +1,5 @@
+import Main from "./Main";
+
 const { ccclass, property } = cc._decorator;
 
 @ccclass
@@ -8,6 +10,10 @@ export default class StartButton extends cc.Component {
 
     @property(cc.Node)
     cardNode: cc.Node = null;
+
+    @property(Main)
+    main: Main = null;
+
 
     contacting = false;
     rigidbody: cc.RigidBody = null;
@@ -20,6 +26,19 @@ export default class StartButton extends cc.Component {
         this.node.on(cc.Node.EventType.TOUCH_START, this.buttonMove, this);
         this.node.on(cc.Node.EventType.MOUSE_ENTER, this.buttonMove, this);
         this.node.on(cc.Node.EventType.TOUCH_END, this.buttonClick, this);
+    }
+
+    start() {
+        if (cc.sys.localStorage.getItem('c01In') === 'true') {
+            this.node.targetOff(this.node);
+
+            for (let dot of this.main.dots) {
+                cc.tween(dot).to(0.2, { scale: 0 }, { easing: 'smooth' }).call(() => dot.destroy()).start();
+            }
+
+            this.onBeginContact();
+            this.buttonClick();
+        }
     }
 
     onBeginContact() {
@@ -50,6 +69,14 @@ export default class StartButton extends cc.Component {
         let tween1 = cc.tween(this.titleNode).to(0.3, { x: 0 }, { easing: 'smooth' });
         let tween2 = cc.tween(this.titleNode).to(10, { x: 0 }, { easing: 'smooth' });
         cc.tween(this.titleNode).sequence(tween1, tween2).start();
+
+        this.main.scrollView.scrollToLeft(1);
+
+        cc.sys.localStorage.setItem('c01In', true);
+
+        // setTimeout(() => {
+        //     cc.director.getPhysicsManager().enabled = false;
+        // }, 6000);
     }
 
     buttonMove() {
