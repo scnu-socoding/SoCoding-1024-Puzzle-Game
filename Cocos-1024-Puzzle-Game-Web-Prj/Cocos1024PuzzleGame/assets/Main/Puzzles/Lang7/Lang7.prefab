@@ -263,7 +263,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        -358.5,
+        -328.5,
         0,
         0,
         0,
@@ -336,7 +336,7 @@
     "_left": 0,
     "_right": 0,
     "_top": 0,
-    "_bottom": 100,
+    "_bottom": 130,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
     "_isAbsLeft": true,

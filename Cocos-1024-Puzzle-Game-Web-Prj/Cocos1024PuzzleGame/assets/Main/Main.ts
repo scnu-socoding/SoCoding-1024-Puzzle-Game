@@ -6,7 +6,7 @@ const payload =
     { puzzleName: "()+[]!", prefabIndex: 2 },
     { puzzleName: "太空的声音", prefabIndex: 3 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 4 },
-    { puzzleName: "记错的梦", prefabIndex: 5 },
+    { puzzleName: "wDream", prefabIndex: 5 },
     { puzzleName: "Anime", prefabIndex: 6 },
     { puzzleName: "QR", prefabIndex: 7 },
     { puzzleName: "Meow", prefabIndex: 8 },
@@ -19,7 +19,7 @@ const payload =
     { puzzleName: "算法1", prefabIndex: 15 },
     { puzzleName: "算法2", prefabIndex: 16 },
     { puzzleName: "7", prefabIndex: 17 },
-    { puzzleName: "12点", prefabIndex: 18 },
+    { puzzleName: "12", prefabIndex: 18 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
@@ -168,10 +168,12 @@ export default class Main extends cc.Component {
     }
 
     toLastLevel() {
+        let fun = this.toLevelFuns[this.currentLevelID - 1];
+        if (typeof fun !== 'function') return;
+
         let oldNode = this.levelCardNode;
         oldNode.setParent(this.cardContent.parent);
-        let fun = this.toLevelFuns[this.currentLevelID - 1];
-        if (typeof fun === 'function') fun();
+        fun();
         this.cardContent.x = -this.cardContent.width;
 
         cc.tween(oldNode).to(0.46, { x: oldNode.width }, { easing: 'circOut' })
@@ -181,11 +183,12 @@ export default class Main extends cc.Component {
     }
 
     toNextLevel() {
+        let fun = this.toLevelFuns[this.currentLevelID + 1];
+        if (typeof fun !== 'function') return;
+
         let oldNode = this.levelCardNode;
         oldNode.setParent(this.cardContent.parent);
-
-        let fun = this.toLevelFuns[this.currentLevelID + 1];
-        if (typeof fun === 'function') fun();
+        fun();
         this.cardContent.x = this.cardContent.width;
 
         cc.tween(oldNode).to(0.46, { x: -oldNode.width }, { easing: 'circOut' })
