@@ -12,6 +12,9 @@ export default class Index extends cc.Component {
     @property(cc.Sprite)
     image: cc.Sprite = null;
 
+    @property(cc.Node)
+    logo: cc.Node = null;
+
     onLoad() {
         cc.view.enableRetina(true);
         cc.view.resizeWithBrowserSize(true);
@@ -30,6 +33,9 @@ export default class Index extends cc.Component {
     }
 
     start() {
+        cc.tween(this.logo).to(0.5, { scale: 1 }, { easing: 'smooth' }).start();
+
+
         let scene = this.getQueryVariable('scene') || "Main";
 
         cc.director.preloadScene(scene, (completedCount: number, totalCount: number, item: any) => {

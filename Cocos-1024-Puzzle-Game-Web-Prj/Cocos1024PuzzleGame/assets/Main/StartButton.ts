@@ -14,6 +14,9 @@ export default class StartButton extends cc.Component {
     @property(Main)
     main: Main = null;
 
+    @property(cc.Node)
+    cocosNode: cc.Node = null;
+
 
     contacting = false;
     rigidbody: cc.RigidBody = null;
@@ -72,11 +75,12 @@ export default class StartButton extends cc.Component {
 
         this.main.scrollView.scrollToLeft(1);
 
+        this.cocosNode.opacity = 0;
+        this.cocosNode.active = true;
+        cc.tween(this.cocosNode).to(0.5, { opacity: 255 }, { easing: 'smooth' }).start();
+
         cc.sys.localStorage.setItem('c01In', true);
 
-        // setTimeout(() => {
-        //     cc.director.getPhysicsManager().enabled = false;
-        // }, 6000);
     }
 
     buttonMove() {
