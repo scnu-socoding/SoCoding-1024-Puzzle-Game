@@ -1,3 +1,5 @@
+import Panel from "./Panel";
+
 const { ccclass, property } = cc._decorator;
 
 const payload =
@@ -20,8 +22,8 @@ const payload =
     { puzzleName: "算法2", prefabIndex: 16 },
     { puzzleName: "7", prefabIndex: 17 },
     { puzzleName: "12", prefabIndex: 18 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "MSJump", prefabIndex: 19 },
+    { puzzleName: "琴声", prefabIndex: 20 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
@@ -66,18 +68,21 @@ export default class Main extends cc.Component {
     @property(cc.Node)
     cardContent: cc.Node = null;
 
+    @property(cc.Node)
+    socodingNode: cc.Node = null;
+
+    @property(cc.Node)
+    socodingNodeP: cc.Node = null;
+
+    @property(cc.Prefab)
+    panelPrefab: cc.Prefab = null;
+
     currentLevelID = 0;
     toLevelFuns = <Function[]>[];
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        cc.view.enableRetina(true);
-        cc.view.resizeWithBrowserSize(true);
-
-        cc.director.getPhysicsManager().enabled = true;
-        cc.director.getPhysicsManager().gravity = cc.v2(0, -1200);
-
         this.cardNode.y = this.node.height / 2 + this.cardNode.height / 2;
         this.cardNode.active = false;
 
@@ -121,9 +126,13 @@ export default class Main extends cc.Component {
                 if (!prefab) return;
                 let node = cc.instantiate(prefab);
 
+                for (let chid of this.cardContent.children) {
+                    chid.destroy();
+                }
+
                 this.cardContent.addChild(node);
                 this.card.active = true;
-                this.cardTitle.string = "Cocos 1024 Puzzle - " + puzzle.puzzleName;
+                this.cardTitle.string = "SoCoding 1024 Puzzle - " + puzzle.puzzleName;
 
                 cc.tween(this.card).to(0.2, { opacity: 255, scale: 1, x: 0, y: 0 }, { easing: 'smooth' }).start();
             };
@@ -133,6 +142,8 @@ export default class Main extends cc.Component {
 
             node.on(cc.Node.EventType.TOUCH_END, fun, this);
         }
+
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onkeyDown, this);
     }
 
     start() {
@@ -146,6 +157,16 @@ export default class Main extends cc.Component {
         cc.tween(this.node).to(0.5, { opacity: 255 }, { easing: 'circOut' }).start();
 
         cc.tween(cc.Camera.main).to(0.5, { zoomRatio: 1 }, { easing: 'circOut' }).start();
+
+        let a = this.socodingNode;
+        let b = this.socodingNodeP;
+
+        let pos = b.parent.convertToWorldSpaceAR(b.position);
+        let targetPos = a.parent.convertToNodeSpaceAR(pos);
+
+        let tween1 = cc.tween(a).to(0.5, { scale: 2 }, { easing: 'smooth' });
+        let tween2 = cc.tween(a).to(1, { position: targetPos, scale: b.scale }, { easing: 'circOut' });
+        cc.tween(a).sequence(tween1, tween2).start();
     }
 
     get levelCardNode() {
@@ -165,6 +186,10 @@ export default class Main extends cc.Component {
 
     openOJ() {
         window.open("https://oj.socoding.cn/");
+    }
+
+    openCocos() {
+        window.open("https://www.cocos.com/");
     }
 
     toLastLevel() {
@@ -195,6 +220,39 @@ export default class Main extends cc.Component {
             .call(() => { oldNode.destroy(); })
             .start();
         cc.tween(this.cardContent).to(0.5, { x: 0 }, { easing: 'circOut' }).start();
+    }
+
+    onkeyDown(e: cc.Event.EventKeyboard) {
+        switch (e.keyCode) {
+            case cc.macro.KEY.left:
+                cc.tween(cc.Camera.main.node).by(0.3, { x: -200 / cc.Camera.main.zoomRatio }, { easing: 'circOut' }).start();
+                break;
+            case cc.macro.KEY.right:
+                cc.tween(cc.Camera.main.node).by(0.3, { x: 200 / cc.Camera.main.zoomRatio }, { easing: 'circOut' }).start();
+                break;
+            case cc.macro.KEY.up:
+                cc.tween(cc.Camera.main.node).by(0.3, { y: 200 / cc.Camera.main.zoomRatio }, { easing: 'circOut' }).start();
+                break;
+            case cc.macro.KEY.down:
+                cc.tween(cc.Camera.main.node).by(0.3, { y: -200 / cc.Camera.main.zoomRatio }, { easing: 'circOut' }).start();
+                break;
+            case cc.macro.KEY.pagedown:
+                cc.tween(cc.Camera.main).by(0.3, { zoomRatio: -0.2 * cc.Camera.main.zoomRatio }, { easing: 'circOut' }).start();
+                break;
+            case cc.macro.KEY.pageup:
+                cc.tween(cc.Camera.main).by(0.3, { zoomRatio: 0.2 * cc.Camera.main.zoomRatio }, { easing: 'circOut' }).start();
+                break;
+            case cc.macro.KEY.backspace:
+                cc.tween(cc.Camera.main).to(0.3, { zoomRatio: 1 }, { easing: 'circOut' }).start();
+                cc.tween(cc.Camera.main.node).to(0.3, { position: cc.v3() }, { easing: 'circOut' }).start();
+                break;
+        }
+    }
+
+    openHelp() {
+        let panel = cc.instantiate(this.panelPrefab);
+        this.node.addChild(panel);
+        panel.getComponent(Panel).openPanel("这里是帮助");
     }
 
 

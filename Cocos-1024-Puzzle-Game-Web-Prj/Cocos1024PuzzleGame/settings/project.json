@@ -1,10 +1,15 @@
 {
   "group-list": [
-    "default"
+    "default",
+    "jump"
   ],
-  "last-module-event-record-time": 1633244475221,
+  "last-module-event-record-time": 1634400732490,
   "collision-matrix": [
     [
+      true
+    ],
+    [
+      false,
       true
     ]
   ],
