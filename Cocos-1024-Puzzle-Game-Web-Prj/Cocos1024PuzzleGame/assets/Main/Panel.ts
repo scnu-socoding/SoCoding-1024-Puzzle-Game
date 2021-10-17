@@ -27,6 +27,8 @@ export default class Panel extends cc.Component {
             }
             this.panelNode.zIndex = maxZIndex + 1;
         }, this)
+
+        this.panelNode.active = false;
     }
 
     start() {
@@ -38,15 +40,26 @@ export default class Panel extends cc.Component {
     }
 
     async openPanel(str: string) {
-        if (this.panelNode.active === true) {
-            await this.closePanel();
-        }
         this.panelNode.active = true;
         this.divLabelString = str;
         this.panelNode.scale = 0;
         this.panelNode.opacity = 0;
         this.panelNode.x = 0;
         this.panelNode.y = 0;
+
+        let maxZIndex = 0;
+        let maxZIndexPanel: cc.Node = null;
+        for (let node of this.panelNode.parent.children) {
+            if (node.name === 'Panel' && maxZIndex < node.zIndex) {
+                maxZIndex = node.zIndex;
+                maxZIndexPanel = node;
+            }
+        }
+        this.panelNode.zIndex = maxZIndex + 1;
+        if (maxZIndexPanel) {
+            this.panelNode.x = maxZIndexPanel.x + 30;
+            this.panelNode.y = maxZIndexPanel.y - 30;
+        }
 
         return new Promise((resolve, reject) => {
             cc.tween(this.panelNode).to(0.2, { scale: 1, opacity: 253 }, { easing: 'smooth' }).call(() => {
@@ -58,7 +71,7 @@ export default class Panel extends cc.Component {
     closePanel() {
         return new Promise((resolve, reject) => {
             cc.tween(this.panelNode).to(0.2, { scale: 0, opacity: 0 }, { easing: 'smooth' }).call(() => {
-                this.panelNode.active = false;
+                this.panelNode.destroy();
                 resolve(undefined);
             }).start();
         });

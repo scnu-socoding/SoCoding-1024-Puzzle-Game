@@ -272,7 +272,7 @@ export default class Main extends cc.Component {
     openHelp() {
         let panel = cc.instantiate(this.panelPrefab);
         this.node.parent.addChild(panel);
-        const helpStr = ``;
+        const helpStr = `这里是 SoCoding 的 1024 解谜游戏！\n\n你的任务是寻找 🔎 Flag （一串字符串）！找到后进入 SCNU 1024 OJ 提交就好啦！\n\n就是这么简单，那么祝你玩得愉快~~`;
         panel.getComponent(Panel).openPanel(helpStr);
     }
 
