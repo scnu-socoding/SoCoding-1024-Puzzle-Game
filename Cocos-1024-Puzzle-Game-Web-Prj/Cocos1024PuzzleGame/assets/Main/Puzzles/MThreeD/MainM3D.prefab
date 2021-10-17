@@ -212,7 +212,7 @@
     "_prefab": {
       "__id__": 8
     },
-    "_opacity": 255,
+    "_opacity": 84.15,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -222,8 +222,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1920,
-      "height": 1080
+      "width": 960,
+      "height": 540
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -241,8 +241,8 @@
         0,
         0,
         1,
-        1,
-        1,
+        2,
+        2,
         1
       ]
     },
@@ -725,7 +725,7 @@
     "_prefab": {
       "__id__": 23
     },
-    "_opacity": 16.065,
+    "_opacity": 33,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,

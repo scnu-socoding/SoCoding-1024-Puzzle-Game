@@ -24,8 +24,8 @@ const payload =
     { puzzleName: "12", prefabIndex: 18 },
     { puzzleName: "MSJump", prefabIndex: 19 },
     { puzzleName: "琴声", prefabIndex: 20 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "./Flag", prefabIndex: 21 },
+    { puzzleName: "找老婆", prefabIndex: 22 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
@@ -90,7 +90,7 @@ export default class Main extends cc.Component {
         this.card.scale = 0;
         this.card.active = false;
 
-        this.card.getChildByName('TitleBackground').zIndex = 999;
+        this.card.getChildByName('CardMain').getChildByName('TitleBackground').zIndex = 999;
 
         for (let puzzle of payload) {
             let node = cc.instantiate(this.cardPrefab);
@@ -134,7 +134,9 @@ export default class Main extends cc.Component {
                 this.card.active = true;
                 this.cardTitle.string = "SoCoding 1024 Puzzle - " + puzzle.puzzleName;
 
-                cc.tween(this.card).to(0.2, { opacity: 255, scale: 1, x: 0, y: 0 }, { easing: 'smooth' }).start();
+                if (this.card.opacity !== 255) {
+                    cc.tween(this.card).to(0.2, { opacity: 255, scale: 1, x: 0, y: 0 }, { easing: 'smooth' }).start();
+                }
             };
 
             fun['levelID'] = this.toLevelFuns.length;
@@ -147,6 +149,24 @@ export default class Main extends cc.Component {
     }
 
     start() {
+        this.cardTitle.node.parent.on(cc.Node.EventType.TOUCH_MOVE, (e: cc.Event.EventTouch) => {
+            this.card.x += e.getDeltaX();
+            this.card.y += e.getDeltaY();
+        }, this);
+
+        let lastTouchEndTime = 0;
+        this.cardTitle.node.parent.on(cc.Node.EventType.TOUCH_END, (e: cc.Event.EventTouch) => {
+            let touchEndTime = Date.now();
+            if (touchEndTime - lastTouchEndTime < 200) {
+                if (this.card.scale > 0.75)
+                    cc.tween(this.card).to(0.3, { scale: 0.5 }, { easing: 'circOut' }).start();
+                else
+                    cc.tween(this.card).to(0.3, { scale: 1, x: 0, y: 0 }, { easing: 'circOut' }).start();
+            }
+            lastTouchEndTime = touchEndTime;
+        }, this);
+
+
         for (let dot of this.dots) {
             dot.on(cc.Node.EventType.TOUCH_END, () => {
                 cc.tween(dot).to(0.2, { scale: 0 }, { easing: 'smooth' }).call(() => dot.destroy()).start();
@@ -251,8 +271,9 @@ export default class Main extends cc.Component {
 
     openHelp() {
         let panel = cc.instantiate(this.panelPrefab);
-        this.node.addChild(panel);
-        panel.getComponent(Panel).openPanel("这里是帮助");
+        this.node.parent.addChild(panel);
+        const helpStr = ``;
+        panel.getComponent(Panel).openPanel(helpStr);
     }
 
 

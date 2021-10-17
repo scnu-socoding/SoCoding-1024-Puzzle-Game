@@ -23,12 +23,12 @@ export default class Index extends cc.Component {
         cc.director.getPhysicsManager().gravity = cc.v2(0, -1200);
     }
 
-    getQueryVariable(variable) {
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split("=");
-            if (pair[0] == variable) { return pair[1]; }
+    getQueryVariable(variable: string) {
+        let query = window.location.search.substring(1);
+        let vars = query.split("&");
+        for (let i = 0; i < vars.length; i++) {
+            let pair = vars[i].split("=");
+            if (pair[0] === variable) { return pair[1]; }
         }
     }
 
@@ -36,7 +36,10 @@ export default class Index extends cc.Component {
         cc.tween(this.logo).to(0.5, { scale: 1 }, { easing: 'smooth' }).start();
 
 
-        let scene = this.getQueryVariable('scene') || "Main";
+        let scene = this.getQueryVariable('scene');
+        if (scene === undefined || scene === 'Index') {
+            scene = 'Main';
+        }
 
         cc.director.preloadScene(scene, (completedCount: number, totalCount: number, item: any) => {
             this.label.string = `${completedCount} / ${totalCount} 正在加载`;

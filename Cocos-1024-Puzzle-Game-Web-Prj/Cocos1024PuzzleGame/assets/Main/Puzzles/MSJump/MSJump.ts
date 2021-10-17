@@ -18,6 +18,9 @@ export default class MSJump extends cc.Component {
     @property(cc.Node)
     backNode: cc.Node = null;
 
+    @property(cc.Label)
+    label: cc.Label = null;
+
 
 
     // LIFE-CYCLE CALLBACKS:
@@ -62,6 +65,9 @@ export default class MSJump extends cc.Component {
             case cc.macro.KEY.d:
                 this.moveLevelNode(cc.v2(1000, 700));
                 break;
+            case cc.macro.KEY.space:
+                cc.director.loadScene(cc.director.getScene().name);
+                break;
         }
     }
 
@@ -71,6 +77,8 @@ export default class MSJump extends cc.Component {
 
         this.cameraNode.y += (this.sprite.node.y - this.cameraNode.y) * dt * 10;
         this.backNode.y += (this.sprite.node.y - this.backNode.y) * dt;
+
+        this.label.string = `${((this.sprite.node.y + 200) / this.levelNode.height * 100).toFixed(2)}%`;
     }
 
 }
