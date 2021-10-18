@@ -15,9 +15,10 @@ export default class Panel extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
+        let camera = cc.Camera.main;
         this.splashNode.on(cc.Node.EventType.TOUCH_MOVE, (e: cc.Event.EventTouch) => {
-            this.panelNode.x += e.getDeltaX();
-            this.panelNode.y += e.getDeltaY();
+            this.panelNode.x += e.getDeltaX() / camera.zoomRatio;
+            this.panelNode.y += e.getDeltaY() / camera.zoomRatio;
         }, this);
 
         this.panelNode.on(cc.Node.EventType.TOUCH_START, () => {

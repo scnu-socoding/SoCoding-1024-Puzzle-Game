@@ -221,7 +221,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1661.29,
+      "width": 1031.68,
       "height": 100.8
     },
     "_anchorPoint": {
@@ -273,8 +273,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "http://10.191.65.243:5000/contest/view?id=324",
-    "_N$string": "http://10.191.65.243:5000/contest/view?id=324",
+    "_string": "https://oj-puzzle.socoding.cn/",
+    "_N$string": "https://oj-puzzle.socoding.cn/",
     "_fontSize": 80,
     "_lineHeight": 80,
     "_enableWrapText": true,

@@ -41,17 +41,30 @@ export default class Index extends cc.Component {
             scene = 'Main';
         }
 
-        cc.director.preloadScene(scene, (completedCount: number, totalCount: number, item: any) => {
-            this.label.string = `${completedCount} / ${totalCount} 正在加载`;
-            this.label2.string = item.uuid;
-            this.image.fillRange = completedCount / totalCount;
-        }, (error: Error) => {
-            if (error) {
+        let err = true;
+
+        try {
+            cc.director.preloadScene(scene, (completedCount: number, totalCount: number, item: any) => {
+                err = false;
+                this.label.string = `${completedCount} / ${totalCount} 正在加载`;
+                this.label2.string = item.uuid;
+                this.image.fillRange = completedCount / totalCount;
+            }, (error: Error) => {
+                if (error) {
+                    this.label.string = `无法加载场景 ${scene}`;
+                } else {
+                    cc.director.loadScene(scene);
+                }
+            });
+        } catch {
+            this.label.string = `无法加载场景 ${scene}`;
+        }
+
+        setTimeout(() => {
+            if (err) {
                 this.label.string = `无法加载场景 ${scene}`;
-            } else {
-                cc.director.loadScene(scene);
             }
-        });
+        }, 1000);
 
     }
 

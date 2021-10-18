@@ -26,8 +26,8 @@ const payload =
     { puzzleName: "琴声", prefabIndex: 20 },
     { puzzleName: "./Flag", prefabIndex: 21 },
     { puzzleName: "找老婆", prefabIndex: 22 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
+    { puzzleName: "Dot", prefabIndex: 23 },
+    { puzzleName: "柱", prefabIndex: 24 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
     { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }];
@@ -205,7 +205,7 @@ export default class Main extends cc.Component {
     }
 
     openOJ() {
-        window.open("https://oj.socoding.cn/");
+        window.open("https://oj-puzzle.socoding.cn/");
     }
 
     openCocos() {
@@ -272,7 +272,7 @@ export default class Main extends cc.Component {
     openHelp() {
         let panel = cc.instantiate(this.panelPrefab);
         this.node.parent.addChild(panel);
-        const helpStr = `这里是 SoCoding 的 1024 解谜游戏！\n\n你的任务是寻找 🔎 Flag （一串字符串）！找到后进入 SCNU 1024 OJ 提交就好啦！\n\n就是这么简单，那么祝你玩得愉快~~`;
+        const helpStr = `这里是 SoCoding 的 1024 解谜游戏！\n\n你的任务是寻找 🔎 Flag (一串字符串)！找到后进入 SCNU 1024 OJ 提交就好啦！\n\n游戏内还藏了若干个彩蛋，你能找到它们吗？\n\n祝你玩得愉快~~`;
         panel.getComponent(Panel).openPanel(helpStr);
     }
 

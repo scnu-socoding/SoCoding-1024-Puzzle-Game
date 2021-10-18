@@ -246,12 +246,12 @@
     "_prefab": {
       "__id__": 9
     },
-    "_opacity": 255,
+    "_opacity": 254,
     "_color": {
       "__type__": "cc.Color",
-      "r": 21,
-      "g": 21,
-      "b": 25,
+      "r": 31,
+      "g": 31,
+      "b": 37,
       "a": 255
     },
     "_contentSize": {
@@ -475,7 +475,7 @@
     "_string": "12",
     "_N$string": "12",
     "_fontSize": 80,
-    "_lineHeight": 90,
+    "_lineHeight": 92,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "e3f331d7-f3ea-4bf3-9095-21232ba44911"
@@ -487,7 +487,7 @@
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 0,
-    "_N$fontFamily": "Arial",
+    "_N$fontFamily": "",
     "_N$overflow": 1,
     "_N$cacheMode": 0,
     "_id": ""
