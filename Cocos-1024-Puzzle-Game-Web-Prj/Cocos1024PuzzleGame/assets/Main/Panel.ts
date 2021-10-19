@@ -9,6 +9,9 @@ export default class Panel extends cc.Component {
     @property(cc.Label)
     label: cc.Label = null;
 
+    @property(cc.Label)
+    title: cc.Label = null;
+
     @property(cc.Node)
     splashNode: cc.Node = null;
 
@@ -40,9 +43,12 @@ export default class Panel extends cc.Component {
         this.label.string = str;
     }
 
-    async openPanel(str: string) {
+    async openPanel(str: string, title?: string) {
         this.panelNode.active = true;
         this.divLabelString = str;
+        if (title) {
+            this.title.string = title;
+        }
         this.panelNode.scale = 0;
         this.panelNode.opacity = 0;
         this.panelNode.x = 0;

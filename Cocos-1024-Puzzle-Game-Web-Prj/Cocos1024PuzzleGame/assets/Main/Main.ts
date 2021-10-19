@@ -18,8 +18,8 @@ const payload =
     { puzzleName: "指针", prefabIndex: 12 },
     { puzzleName: "闪烁", prefabIndex: 13 },
     { puzzleName: "目录", prefabIndex: 14 },
-    { puzzleName: "算法1", prefabIndex: 15 },
-    { puzzleName: "算法2", prefabIndex: 16 },
+    { puzzleName: "0b01", prefabIndex: 15 },
+    { puzzleName: "0b10", prefabIndex: 16 },
     { puzzleName: "7", prefabIndex: 17 },
     { puzzleName: "12", prefabIndex: 18 },
     { puzzleName: "MSJump", prefabIndex: 19 },
@@ -28,9 +28,9 @@ const payload =
     { puzzleName: "找老婆", prefabIndex: 22 },
     { puzzleName: "Dot", prefabIndex: 23 },
     { puzzleName: "柱", prefabIndex: 24 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 9 }];
+    { puzzleName: "绑架", prefabIndex: 25 },
+    { puzzleName: "Document", prefabIndex: 26 },
+    { puzzleName: "Wechat", prefabIndex: 27 }];
 
 @ccclass
 export default class Main extends cc.Component {
@@ -83,6 +83,8 @@ export default class Main extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
+        window['Main1024'] = this;
+
         this.cardNode.y = this.node.height / 2 + this.cardNode.height / 2;
         this.cardNode.active = false;
 
@@ -270,10 +272,13 @@ export default class Main extends cc.Component {
     }
 
     openHelp() {
+        this.openPanel(`这里是 SoCoding 的 1024 解谜游戏！\n\n你的任务是寻找 🔎 Flag (一串字符串)！找到后进入 SCNU 1024 OJ 提交就好啦！\n\n游戏内还藏了若干个彩蛋，你能找到它们吗？\n\n祝你玩得愉快~~`);
+    }
+
+    openPanel(str: string, title?: string) {
         let panel = cc.instantiate(this.panelPrefab);
         this.node.parent.addChild(panel);
-        const helpStr = `这里是 SoCoding 的 1024 解谜游戏！\n\n你的任务是寻找 🔎 Flag (一串字符串)！找到后进入 SCNU 1024 OJ 提交就好啦！\n\n游戏内还藏了若干个彩蛋，你能找到它们吗？\n\n祝你玩得愉快~~`;
-        panel.getComponent(Panel).openPanel(helpStr);
+        panel.getComponent(Panel).openPanel(str, title);
     }
 
 

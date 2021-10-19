@@ -109,7 +109,7 @@
     "_prefab": {
       "__id__": 5
     },
-    "_opacity": 63.75,
+    "_opacity": 112.965,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1406,6 +1406,9 @@
     },
     "label": {
       "__id__": 12
+    },
+    "title": {
+      "__id__": 34
     },
     "splashNode": {
       "__id__": 14

@@ -58,7 +58,7 @@
     "_groupIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
-    "_id": "21703c2a-bd24-49cd-a8b8-99bb465d682d"
+    "_id": "3551f5a1-44af-4f04-98e8-6527a2640863"
   },
   {
     "__type__": "cc.Node",
@@ -297,7 +297,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Column",
+    "_name": "IP",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -368,7 +368,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "t",
+    "_name": "Label",
     "_objFlags": 0,
     "_parent": {
       "__id__": 7
@@ -386,113 +386,6 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 189,
-      "g": 255,
-      "b": 251,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 691,
-      "height": 121
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_trs": {
-      "__type__": "TypedArray",
-      "ctor": "Float64Array",
-      "array": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1
-      ]
-    },
-    "_eulerAngles": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
-    "_id": "0bL+8/bFVPuarlf7SyydLD"
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 8
-    },
-    "_enabled": true,
-    "_materials": [
-      {
-        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
-      }
-    ],
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "67bccca4-3cba-42f5-a66a-19a534909c66"
-    },
-    "_type": 0,
-    "_sizeMode": 1,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_atlas": null,
-    "_id": "51+gfLZBdNWatPHGOCtJEl"
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 7
-    },
-    "asset": {
-      "__uuid__": "1b3ffdd7-1a94-4fd5-9bf1-968a3ece74e2"
-    },
-    "fileId": "205gMNGCpPG7syYlyL5Yit",
-    "sync": false
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Label",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 7
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 12
-      }
-    ],
-    "_prefab": {
-      "__id__": 13
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
       "r": 255,
       "g": 255,
       "b": 255,
@@ -500,7 +393,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 588,
+      "width": 966,
       "height": 100.8
     },
     "_anchorPoint": {
@@ -542,7 +435,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 11
+      "__id__": 8
     },
     "_enabled": true,
     "_materials": [
@@ -552,8 +445,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "flag{...3....}",
-    "_N$string": "flag{...3....}",
+    "_string": "flag{UllllllllUlllllll}",
+    "_N$string": "flag{UllllllllUlllllll}",
     "_fontSize": 80,
     "_lineHeight": 80,
     "_enableWrapText": true,
@@ -578,9 +471,117 @@
       "__id__": 7
     },
     "asset": {
-      "__uuid__": "1b3ffdd7-1a94-4fd5-9bf1-968a3ece74e2"
+      "__uuid__": "b3941d95-15de-4ab3-b9c0-1318dff3ac0f"
     },
     "fileId": "e5G9xvSc5LLrsEaUb04goT",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "Label",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 7
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 12
+      }
+    ],
+    "_prefab": {
+      "__id__": 13
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 2000,
+      "height": 473.4
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0.5,
+        0.5,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "99W8zxNmlDt7g4gD23n5it"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 11
+    },
+    "_enabled": true,
+    "_materials": [
+      {
+        "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
+      }
+    ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_string": "小红被绑架了！\n碍于手中工具的有限性，她向自己的好朋友小明发送了一条奇怪的消息：00111011 10011111 10101111 10010000\n\n作为她的好朋友，你该如何找到小红被绑票的所在地呢？",
+    "_N$string": "小红被绑架了！\n碍于手中工具的有限性，她向自己的好朋友小明发送了一条奇怪的消息：00111011 10011111 10101111 10010000\n\n作为她的好朋友，你该如何找到小红被绑票的所在地呢？",
+    "_fontSize": 80,
+    "_lineHeight": 90,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 3,
+    "_N$cacheMode": 0,
+    "_id": "62qbVuEpVAebzoxn6Hzp1F"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 7
+    },
+    "asset": {
+      "__uuid__": "b3941d95-15de-4ab3-b9c0-1318dff3ac0f"
+    },
+    "fileId": "5aaecxiKhPYry6FJglYZEn",
     "sync": false
   },
   {
@@ -616,7 +617,7 @@
       "__id__": 7
     },
     "asset": {
-      "__uuid__": "1b3ffdd7-1a94-4fd5-9bf1-968a3ece74e2"
+      "__uuid__": "b3941d95-15de-4ab3-b9c0-1318dff3ac0f"
     },
     "fileId": "",
     "sync": false
