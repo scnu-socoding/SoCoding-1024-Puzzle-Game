@@ -43,7 +43,7 @@ export default class Panel extends cc.Component {
         this.label.string = str;
     }
 
-    async openPanel(str: string, title?: string) {
+    openPanel(str: string, title?: string) {
         this.panelNode.active = true;
         this.divLabelString = str;
         if (title) {
@@ -70,17 +70,19 @@ export default class Panel extends cc.Component {
 
         return new Promise((resolve, reject) => {
             cc.tween(this.panelNode).to(0.2, { scale: 1, opacity: 253 }, { easing: 'smooth' }).call(() => {
-                resolve(undefined);
+                resolve(this);
             }).start();
         });
     }
 
     closePanel() {
         return new Promise((resolve, reject) => {
-            cc.tween(this.panelNode).to(0.2, { scale: 0, opacity: 0 }, { easing: 'smooth' }).call(() => {
-                this.panelNode.destroy();
-                resolve(undefined);
-            }).start();
+            if (this.panelNode && this.panelNode.active) {
+                cc.tween(this.panelNode).to(0.2, { scale: 0, opacity: 0 }, { easing: 'smooth' }).call(() => {
+                    this.panelNode.destroy();
+                    resolve(this);
+                }).start();
+            }
         });
     }
 

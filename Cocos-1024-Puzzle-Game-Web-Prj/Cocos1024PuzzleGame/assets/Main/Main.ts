@@ -278,7 +278,7 @@ export default class Main extends cc.Component {
     openPanel(str: string, title?: string) {
         let panel = cc.instantiate(this.panelPrefab);
         this.node.parent.addChild(panel);
-        panel.getComponent(Panel).openPanel(str, title);
+        return panel.getComponent(Panel).openPanel(str, title);
     }
 
 
