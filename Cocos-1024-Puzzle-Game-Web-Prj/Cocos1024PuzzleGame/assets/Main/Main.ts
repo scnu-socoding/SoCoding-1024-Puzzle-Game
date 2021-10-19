@@ -3,34 +3,38 @@ import Panel from "./Panel";
 const { ccclass, property } = cc._decorator;
 
 const payload =
-    [{ puzzleName: "签到", prefabIndex: 0 },
-    { puzzleName: "买瓜", prefabIndex: 1 },
-    { puzzleName: "()+[]!", prefabIndex: 2 },
-    { puzzleName: "太空的声音", prefabIndex: 3 },
-    { puzzleName: "丘丘人的宝箱", prefabIndex: 4 },
-    { puzzleName: "wDream", prefabIndex: 5 },
-    { puzzleName: "Anime", prefabIndex: 6 },
-    { puzzleName: "QR", prefabIndex: 7 },
-    { puzzleName: "Meow", prefabIndex: 8 },
-    { puzzleName: "手电筒", prefabIndex: 9 },
-    { puzzleName: "null", prefabIndex: 10 },
-    { puzzleName: "Character", prefabIndex: 11 },
-    { puzzleName: "指针", prefabIndex: 12 },
-    { puzzleName: "闪烁", prefabIndex: 13 },
-    { puzzleName: "目录", prefabIndex: 14 },
-    { puzzleName: "0b01", prefabIndex: 15 },
-    { puzzleName: "0b10", prefabIndex: 16 },
-    { puzzleName: "7", prefabIndex: 17 },
-    { puzzleName: "12", prefabIndex: 18 },
-    { puzzleName: "MSJump", prefabIndex: 19 },
-    { puzzleName: "琴声", prefabIndex: 20 },
-    { puzzleName: "./Flag", prefabIndex: 21 },
-    { puzzleName: "找老婆", prefabIndex: 22 },
-    { puzzleName: "Dot", prefabIndex: 23 },
-    { puzzleName: "柱", prefabIndex: 24 },
-    { puzzleName: "绑架", prefabIndex: 25 },
-    { puzzleName: "Document", prefabIndex: 26 },
-    { puzzleName: "Wechat", prefabIndex: 27 }];
+    [
+        { puzzleName: "签到", prefabIndex: 0 },
+        { puzzleName: "手电筒", prefabIndex: 9 },
+        { puzzleName: "闪烁", prefabIndex: 13 },
+        { puzzleName: "Wechat", prefabIndex: 27 },
+        { puzzleName: "null", prefabIndex: 10 },
+        { puzzleName: "QR", prefabIndex: 7 },
+        { puzzleName: "目录", prefabIndex: 14 },
+        { puzzleName: "()+[]!", prefabIndex: 2 },
+        { puzzleName: "12", prefabIndex: 18 },
+        { puzzleName: "柱", prefabIndex: 24 },
+        { puzzleName: "绑架", prefabIndex: 25 },
+        { puzzleName: "./Flag", prefabIndex: 21 },
+        { puzzleName: "买瓜", prefabIndex: 1 },
+        { puzzleName: "Anime", prefabIndex: 6 },
+        { puzzleName: "Character", prefabIndex: 11 },
+        { puzzleName: "FindWaifu", prefabIndex: 22 },
+        { puzzleName: "丘丘人的宝箱", prefabIndex: 4 },
+        { puzzleName: "太空的声音", prefabIndex: 3 },
+        { puzzleName: "Meow", prefabIndex: 8 },
+        { puzzleName: "Document", prefabIndex: 26 },
+        { puzzleName: "0b01", prefabIndex: 15 },
+        { puzzleName: "0b10", prefabIndex: 16 },
+        { puzzleName: "指针", prefabIndex: 12 },
+        { puzzleName: "7", prefabIndex: 17 },
+        { puzzleName: "琴声", prefabIndex: 20 },
+        { puzzleName: "wDream", prefabIndex: 5 },
+        { puzzleName: "Dot", prefabIndex: 23 },
+        { puzzleName: "MSJump", prefabIndex: 19 },
+    ];
+
+
 
 @ccclass
 export default class Main extends cc.Component {
@@ -94,11 +98,13 @@ export default class Main extends cc.Component {
 
         this.card.getChildByName('CardMain').getChildByName('TitleBackground').zIndex = 999;
 
-        for (let puzzle of payload) {
+        for (let i = 0; i < payload.length; i++) {
+            let puzzle = payload[i];
+
             let node = cc.instantiate(this.cardPrefab);
             node.getChildByName("Name").getComponent(cc.Label).string = puzzle.puzzleName;
             node.getChildByName("ID").getComponent(cc.Label).string =
-                (1 + puzzle.prefabIndex).toString().padStart(2, '0');
+                (1 + i).toString().padStart(2, '0');
 
             this.scrollContentNode.addChild(node);
 
@@ -207,7 +213,7 @@ export default class Main extends cc.Component {
     }
 
     openOJ() {
-        window.open("https://oj-puzzle.socoding.cn/");
+        window.open("https://oj-puzzle.socoding.cn/contest/view?id=3");
     }
 
     openCocos() {

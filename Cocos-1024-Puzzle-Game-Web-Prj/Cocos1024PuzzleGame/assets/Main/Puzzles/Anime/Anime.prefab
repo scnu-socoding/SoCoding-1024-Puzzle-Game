@@ -591,7 +591,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 386.01,
+      "width": 429.5,
       "height": 150
     },
     "_anchorPoint": {
@@ -655,7 +655,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 97.31,
+      "width": 131.25,
       "height": 100.8
     },
     "_anchorPoint": {
@@ -667,7 +667,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -144.35,
+        -149.125,
         0,
         0,
         0,
@@ -712,8 +712,10 @@
     "_fontSize": 50,
     "_lineHeight": 80,
     "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "e3f331d7-f3ea-4bf3-9095-21232ba44911"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,
@@ -775,8 +777,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -43.69499999999999,
-        -6,
+        -31.5,
+        -3,
         0,
         0,
         0,
@@ -882,8 +884,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        40.30500000000001,
-        -6,
+        52.5,
+        -3,
         0,
         0,
         0,
@@ -989,8 +991,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        124.305,
-        -6,
+        136.5,
+        -3,
         0,
         0,
         0,
@@ -1084,7 +1086,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 16.7,
+      "width": 26.25,
       "height": 100.8
     },
     "_anchorPoint": {
@@ -1096,7 +1098,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        184.655,
+        201.625,
         0,
         0,
         0,
@@ -1141,8 +1143,10 @@
     "_fontSize": 50,
     "_lineHeight": 80,
     "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "e3f331d7-f3ea-4bf3-9095-21232ba44911"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,
@@ -1175,7 +1179,7 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 386.01,
+      "width": 429.5,
       "height": 150
     },
     "_resize": 1,

@@ -26,5 +26,8 @@ export default class MainM3D extends cc.Component {
         this.time += dt;
 
         this.light.node.x += this.node.width / 2 * Math.cos(this.time) * dt;
+
+        this.model.x -= this.node.width / 4 * Math.cos(this.time) * dt;
+        this.model.y -= this.node.height / 4 * Math.sin(this.time) * dt;
     }
 }
