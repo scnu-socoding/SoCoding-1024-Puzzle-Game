@@ -213,7 +213,7 @@ export default class Main extends cc.Component {
     }
 
     openOJ() {
-        window.open("https://oj-puzzle.socoding.cn/contest/view?id=3");
+        window.open("https://oj-puzzle.socoding.cn/contest/problem?id=3&pid=" + (this.currentLevelID).toString());
     }
 
     openCocos() {
