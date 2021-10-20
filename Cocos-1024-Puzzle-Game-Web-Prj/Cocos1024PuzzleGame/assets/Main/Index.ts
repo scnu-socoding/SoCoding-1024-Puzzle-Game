@@ -60,11 +60,11 @@ export default class Index extends cc.Component {
             this.label.string = `无法加载场景 ${scene}`;
         }
 
-        setTimeout(() => {
+        this.scheduleOnce(() => {
             if (err) {
                 this.label.string = `无法加载场景 ${scene}`;
             }
-        }, 1000);
+        }, 3);
 
     }
 

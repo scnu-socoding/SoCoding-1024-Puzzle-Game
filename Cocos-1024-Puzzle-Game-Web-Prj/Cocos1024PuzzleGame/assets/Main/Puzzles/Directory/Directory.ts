@@ -46,7 +46,9 @@ export default class Directory extends cc.Component {
     }
 
     start() {
-        this.openObject(window);
+        this.scheduleOnce(() => {
+            this.openObject(window);
+        }, 0.5)
     }
 
     closeAll() {
