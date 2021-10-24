@@ -107,7 +107,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 798,
+      "width": 966,
       "height": 100.8
     },
     "_anchorPoint": {
@@ -159,8 +159,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "flag{UlllllllUllll}",
-    "_N$string": "flag{UlllllllUllll}",
+    "_string": "flag{UllllllllUlllllll}",
+    "_N$string": "flag{UllllllllUlllllll}",
     "_fontSize": 80,
     "_lineHeight": 80,
     "_enableWrapText": true,
@@ -218,7 +218,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 2000,
-      "height": 473.4
+      "height": 653.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -269,20 +269,22 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "小红被绑架了！\n碍于手中工具的有限性，她向自己的好朋友小明发送了一条奇怪的消息：00111011 10011111 10101111 10010000\n\n作为她的好朋友，你该如何找到小红被绑票的所在地呢？",
-    "_N$string": "小红被绑架了！\n碍于手中工具的有限性，她向自己的好朋友小明发送了一条奇怪的消息：00111011 10011111 10101111 10010000\n\n作为她的好朋友，你该如何找到小红被绑票的所在地呢？",
+    "_string": "小红被绑架了！\n碍于手中工具的有限，她向自己的好朋友小明发送了一条奇怪的消息：\n\n11011100  11111001  11110101  10010000\n\n作为她的好朋友，你该如何找到小红被绑票的所在地呢？",
+    "_N$string": "小红被绑架了！\n碍于手中工具的有限，她向自己的好朋友小明发送了一条奇怪的消息：\n\n11011100  11111001  11110101  10010000\n\n作为她的好朋友，你该如何找到小红被绑票的所在地呢？",
     "_fontSize": 80,
     "_lineHeight": 90,
     "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "e3f331d7-f3ea-4bf3-9095-21232ba44911"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
+    "_N$fontFamily": "",
     "_N$overflow": 3,
     "_N$cacheMode": 0,
     "_id": ""
