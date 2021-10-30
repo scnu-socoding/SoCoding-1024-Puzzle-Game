@@ -1,5 +1,7 @@
 let chartDom = document.getElementById('main');
-let myChart = echarts.init(chartDom, 'dark');
+let myChart = echarts.init(chartDom, 'dark', {
+	renderer: 'svg'
+});
 let option;
 
 let new_data;
@@ -54,7 +56,7 @@ function update() {
 			return b.cnt - a.cnt;
 		});
 
-		let slice_num = Math.floor(sorted_data.length * 0.2);
+		let slice_num = Math.floor(sorted_data.length * 1);
 		sorted_data = sorted_data.slice(0, slice_num);
 
 		// console.log(sorted_data);
@@ -65,7 +67,7 @@ function update() {
 			let accpted = item.accpted;
 
 			let accpted_data = [];
-			for (let i = 1; i <= 28; i++) {
+			for (let i = 1; i <= z_num; i++) {
 				let key = i.toString().padStart(2, '0');
 				let num = accpted[key] || -1;
 				accpted_data.push(num);
@@ -79,9 +81,14 @@ function update() {
 		function distance(vec1, vec2) {
 			let length = Math.min(vec1.length, vec2.length);
 			let sum = 0;
+			let cnt = 0;
 			for (let i = 0; i < length; i++) {
-				sum += (vec1[i] - vec2[i]) ** 2;
+				if (vec1[i] !== -1 && vec2[i] !== -1) {
+					sum += (vec1[i] - vec2[i]) ** 2;
+					cnt++;
+				}
 			}
+			sum /= cnt;
 			// return sum;
 			return Math.log(sum);
 		}
@@ -94,7 +101,7 @@ function update() {
 					let vec2 = my_data[name2];
 
 					// let cnt = Object.keys(users[name1].accpted).length
-					let dis = distance(vec1, vec2) / 2;
+					let dis = distance(vec1, vec2);
 
 					let old_dis = map.get(name1);
 					if (old_dis === undefined || old_dis > dis) {
@@ -107,9 +114,9 @@ function update() {
 		// console.log(map);
 
 		let next_data = Array.from(map).sort((a, b) => {
-			// let x = Object.keys(users[a[0]].accpted).length;
-			// let y = Object.keys(users[b[0]].accpted).length;
-			// return y - x;
+			let x = Object.keys(users[a[0]].accpted).length;
+			let y = Object.keys(users[b[0]].accpted).length;
+			return y - x;
 
 			return a[1] - b[1];
 		});
@@ -149,7 +156,7 @@ function render_charts(x_data, y_data, bar_data) {
 				rotate: 40,
 				textStyle: {
 					color: '#fff',
-					fontSize: 10
+					fontSize: 4
 				}
 			},
 			type: 'category',
@@ -178,13 +185,19 @@ function render_charts(x_data, y_data, bar_data) {
 	myChart.setOption(option);
 }
 
-let num = 0;
-let t_num = 0;
-setInterval(() => {
-	num = num % 100 + 1;
-	t_num = num / 100;
-	update();
-}, 200);
+// let num = 0;
+// let t_num = 0;
+// setInterval(() => {
+// 	num = num % 100 + 1;
+// 	t_num = num / 100;
+// 	update();
+// }, 1000);
 
-// t_num = 1;
-// update();
+t_num = 1;
+update();
+
+let z_num = 28;
+// setInterval(() => {
+// 	z_num = z_num % 28 + 1;
+// 	update();
+// }, 200);

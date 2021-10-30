@@ -1,28 +1,30 @@
 const chartDom = document.getElementById('main');
-const myChart = echarts.init(chartDom, 'dark');
+const myChart = echarts.init(chartDom, 'dark', {
+	renderer: 'svg'
+});
 
-window.onresize = function() {
-	myChart.resize();
-};
+// window.onresize = function() {
+// 	myChart.resize();
+// };
 
 let option;
 
 let fun = function() {
 	$.getJSON(
 		'./data.json', (_rawData) => {
-			// let usernames = ["Price", "qwer", "Pop_Slime", "Pikachuwa", "ly55341266", "no_reason", "metaphy",
-			// 	"zrl975", "konodioda", "Darren", "cymic", "LLLv_da", "Chordfish", "Wallbreaker5th",
-			// 	"ashcastle", "Norato", "goodnightsion", "chendong", "Csome", "FireEgg", "x_17",
-			// 	"frankOJ1024", "WHHH", "harrynull", "Upw1nd", "sjspm", "Ephemerally", "zmx0142857",
-			// 	"jybuchiyu", "d3280", "SG4YK", "Jackieqian", "yansixing", "Mokkk", "1zero", "anfrsmLena",
-			// 	"culionBear", "gmaster", "linx", "tmlwacre", "ice_frost"
-			// ];
-			let usernames = [];
-			for (let item of _rawData.data) {
-				usernames.push(item.username);
-			}
-			// usernames = usernames.slice(0,10);
-			usernames = Array.from(new Set(usernames));
+			let usernames = ["Price", "qwer", "Pop_Slime", "Pikachuwa", "ly55341266", "no_reason", "metaphy",
+				"zrl975", "konodioda", "Darren", "cymic", "LLLv_da", "Chordfish", "Wallbreaker5th",
+				"ashcastle", "Norato", "goodnightsion", "chendong", "Csome", "FireEgg", "x_17",
+				"frankOJ1024", "WHHH", "harrynull", "Upw1nd", "sjspm", "Ephemerally", "zmx0142857",
+				"jybuchiyu", "d3280", "SG4YK", "Jackieqian", "yansixing", "Mokkk", "1zero", "anfrsmLena",
+				"culionBear", "gmaster", "linx", "tmlwacre", "ice_frost"
+			];
+			// let usernames = [];
+			// for (let item of _rawData.data) {
+			// 	usernames.push(item.username);
+			// }
+			// // usernames = usernames.slice(0,10);
+			// usernames = Array.from(new Set(usernames));
 			// console.log(usernames.length);
 
 			let name_score = {};
@@ -109,7 +111,7 @@ let fun = function() {
 		});
 
 		option = {
-			animationDuration: 200000,
+			animationDuration: 0,
 			dataset: [{
 					id: 'dataset_raw',
 					source: _rawData
