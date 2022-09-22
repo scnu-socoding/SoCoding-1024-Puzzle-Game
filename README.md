@@ -1,4 +1,4 @@
-# SoCoding-1024-Puzzle-Game
+# SoCoding-1024-Puzzle-Game-2021
 软协2021年10月24日1024节的解密游戏。解密游戏系统包括 Game 、论坛和 OJ 三部分。
 
 - 由 Cocos 赞助本项目
